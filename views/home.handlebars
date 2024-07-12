@@ -1,21 +1,21 @@
 <!-- Home Page -->
-{{#extend 'main'}}
+{{#extend "main"}}
 
-<!-- Top Section/Post Upload -->
-{{#content 'body'}}
+  <!-- Top Section/Post Upload -->
+  {{#content "body"}}
     {{#if logged_in}}
-        <a href="/signout">Sign Out</a>
+      <a href="/signout">Sign Out</a>
     {{else}}
-        <a href="/signin">Sign In</a>
-        <a href="/signup">Sign Up</a>
+      <a href="/signin">Sign In</a>
+      <a href="/signup">Sign Up</a>
     {{/if}}
 
-    {{!-- List of memes --}}
+    {{! List of memes }}
     {{#each posts}}
-        <div class="post">
-            <img href="" />
-        </div>
+      <div class="post">
+        <img href="" />
+      </div>
     {{/each}}
-{{/content}}
+  {{/content}}
 
 {{/extend}}
