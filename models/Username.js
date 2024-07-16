@@ -8,7 +8,7 @@ class Username extends Model {
   }
 }
 
-User.init(
+Username.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -19,14 +19,7 @@ User.init(
     username: {
       type: DataTypes.STRING,
       allowNull: false,
-    },
-    email: {
-      type: DataTypes.STRING,
-      allowNull: false,
       unique: true,
-      validate: {
-        isEmail: true,
-      },
     },
     password: {
       type: DataTypes.STRING,
@@ -51,9 +44,11 @@ User.init(
       },
     },
     sequelize,
-    timestamps: false,
+    timestamps: true,
     freezeTableName: true,
     underscored: true,
     modelName: "user",
   }
 );
+
+module.exports = Username;

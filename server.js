@@ -1,8 +1,8 @@
 const express = require('express');
-const session = rquire('express-session');
+const session = require('express-session');
 const path = require('path');
 const exphbs = require('express-handlebars');
-const routes = require('./controllers');
+const routes = require('./controllers/homeRoutes');
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
@@ -14,7 +14,7 @@ const hbs = exphbs.create({});
 // Session Configuration
 
 const sess = {
-    secret: '',
+    secret: 'secret here',
     cookie: {},
     resave: false,
     saveUninitialized: true,
@@ -36,8 +36,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);
 
-app.use(require('./controllers/api'));
-
-sequelize.sync({ force: false }).then(() => {
+sequelize.sync({ force: true }).then(() => {
     app.listen(PORT, () => console.log(`Now listening on port ${PORT}`))
 });
