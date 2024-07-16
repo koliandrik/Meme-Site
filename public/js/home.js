@@ -1,29 +1,30 @@
-document.getElementById('upload-url-form').addEventListener('submit', async (event) =>{
-    event.preventDefault();
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('upload-url-form');
 
-    const imageUrl = document.getElementById('image-url').value.trim();
+    form.addEventListener('submit', async(event) => {
+        event.preventDefault();
 
-    if (imageURL) {
-        const response = await fetch('/api/posts', {
-            method: 'POST',
-            body: JSON.stringify({ url: imageUrl }),
-            headers: { 'Content-Type': 'application/json' },
-        });
-
-        if (response.ok) {
-            const newPost = await response.json();
-            addImageToFeed(newPost.url);
-            document.getElementById('image-url').value = '';
-        } else {
-            alert('Failed to upload');
+        const url = document.getElementById('image-url').value.trim();
+        if (!url) {
+            alert('Please enter a URL');
+            return;
         }
-    }
-});
 
-function addImageToFeed(url) {
-    const feed = document.getElementById('feed');
-    const newPost = document.createElement('div');
-    newPost.className = 'post';
-    newPost.innerHTML = `<img src="${url}" alt="Image Post" />`;
-    feed.insertBefore(newPost, feed.firstChild);
-}
+        try {
+            const resposne = await fetch('/api/posts', {
+                method: 'POST',
+                body: JSON.stringify({url}),
+                headers: { 'Content-Type': 'application/json' },
+            });
+
+            if (response.ok) {
+                document.location.reload();
+            } else {
+                alert('Failed to upload image');
+            }
+        } catch (err) {
+            console.error(err);
+            alert('An error occurred while uploading the image');
+        }
+    });
+});

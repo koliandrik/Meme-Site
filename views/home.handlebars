@@ -1,11 +1,25 @@
-<form>
-  <input type="text" id="image-url" placeholder="Enter Image URL" />
-  <button type="submit">Enter</button>
-</form>
+<header>
+  <h1>Post Your Meme!</h1>
+  <form id="upload-url-form">
+    <input types="text" id="image-url" placeholder="Enter Image URL" required/>
+    <button type="submit">Enter</button>
+  </form>
+  <nav>
+    {{#if logged_in}}
+      <a href="/logout">Sign Out</a>
+    {{else}}
+      <a href="/login">Sign In</a>
+      <a href="signup">Sign Up</a>
+    {{/if}}
+  </nav>
+</header>
 
-<div id="feed">
-  {{#each images}}
+{{!== views/home.handlebars ==}}
+<section id="feed">
+  {{#each posts}}
     <div class="post">
-      <img src="{{this.url}}" alt="Image Post" />
+      <img src="{{this.url}}" alt="Meme" />
+      <p>{{this.caption}}</p>
     </div>
-</div>
+  {{/each}}
+</section>
