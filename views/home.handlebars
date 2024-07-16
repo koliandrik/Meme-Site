@@ -1,21 +1,11 @@
-<!-- Home Page -->
-{{#extend "main"}}
+<form>
+  <input type="text" id="image-url" placeholder="Enter Image URL" />
+  <button type="submit">Enter</button>
+</form>
 
-  <!-- Top Section/Post Upload -->
-  {{#content "body"}}
-    {{#if logged_in}}
-      <a href="/signout">Sign Out</a>
-    {{else}}
-      <a href="/signin">Sign In</a>
-      <a href="/signup">Sign Up</a>
-    {{/if}}
-
-    {{! List of memes }}
-    {{#each posts}}
-      <div class="post">
-        <img href="" />
-      </div>
-    {{/each}}
-  {{/content}}
-
-{{/extend}}
+<div id="feed">
+  {{#each images}}
+    <div class="post">
+      <img src="{{this.url}}" alt="Image Post" />
+    </div>
+</div>
