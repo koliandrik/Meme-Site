@@ -1,28 +1,33 @@
 <!-- Basic HTML header -->
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width-device-width, initial-scale-1.0">
-        <link rel-"stylesheet" href="/css/styles.css">
-        <title>Meme Poster</title>
-    </head>
-    <body>
-        <header>
-            <h1>Post Your Meme!</h1>
-            <input>Enter Link</input>
-            <button>Post</button>
-            <nav>
-            {{#if logged_in}}
-                <a href="/">Sign Out</a>
-            {{else}}
-                <a href="/">Sign In</a>
-                <a href="/">Sign Up</a>
-            {{/if}}
-            </nav>
-        </header>
-        
-        {{{body}}}
 
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width-device-width, initial-scale-1.0">
+    <link rel-"stylesheet" href="/css/styles.css">
+    <title>Meme Poster</title>
+</head>
+
+<body>
+    <header>
+        <h1>Post Your Meme!</h1>
+        <form id="upload-url-form">
+            <input type="text" id="image-url" placeholder="Enter Image URL" />
+            <button type="submit">Enter</button>
+        </form>
+        <nav>
+            {{#if logged_in}}
+            <a href="/">Sign Out</a>
+            {{else}}
+            <a href="/">Sign In</a>
+            <a href="/">Sign Up</a>
+            {{/if}}
+        </nav>
+    </header>
+
+    {{{body}}}
+
+</body>
+
 </html>
