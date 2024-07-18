@@ -1,0 +1,14 @@
+[
+    {
+        "id": 1,
+        "comment": "Monsters Inc. is a great movie",
+        "user_id": 1,
+        "post_id": 1
+    },
+    {
+        "id": 2,
+        "comment": "Yikes",
+        "user_id": 2,
+        "post_id": 2
+    }
+]
