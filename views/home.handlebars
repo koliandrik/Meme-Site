@@ -6,10 +6,10 @@
   </form>
   <nav>
     {{#if logged_in}}
-      <a href="/logout">Sign Out</a>
+      <a id="logout" href="#">Sign Out</a>
     {{else}}
-      <a href="/login">Sign In</a>
-      <a href="signup">Sign Up</a>
+      <a href="/signin">Sign In</a>
+      <a href="/signup">Sign Up</a>
     {{/if}}
   </nav>
 </header>
@@ -23,3 +23,5 @@
     </div>
   {{/each}}
 </section>
+
+<script src="/js/home.js"></script>
