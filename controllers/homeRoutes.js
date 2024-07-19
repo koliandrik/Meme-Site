@@ -1,21 +1,16 @@
 const router = require("express").Router();
-const { Post, Username, Comment } = require("../models");
+const { Post, User, Comment } = require("../models");
 
 // Render home page
 router.get("/", async (req, res) => {
   try {
     const postData = await Post.findAll({
       include: [
-        { model: Username },
-        {
-          model: Comment,
-          include: [Username],
-        }
+        { model: User, attributes: ['username'] },
+        { model: Comment, include: [{ model: User, attributes: ['username'] }] },
       ],
-      //order: [["createdAt", "DESC"]],
+      order: [["createdAt", "DESC"]],
     });
-
-    console.log(postData);
 
     const posts = postData.map((post) => post.get({ plain: true }));
 
@@ -24,13 +19,11 @@ router.get("/", async (req, res) => {
       logged_in: req.session.logged_in,
     });
   } catch (err) {
-    console.log(err);
     res.status(500).json(err);
   }
 });
 
 // Sign In
-
 router.get('/signin', (req, res) => {
   if (req.session.logged_in) {
     res.redirect('/');
@@ -41,7 +34,6 @@ router.get('/signin', (req, res) => {
 });
 
 // Sign Up
-
 router.get('/signup', (req, res) => {
   if (req.session.logged_in) {
     res.redirect('/');
@@ -49,6 +41,6 @@ router.get('/signup', (req, res) => {
   }
 
   res.render('signup');
-})
+});
 
 module.exports = router;

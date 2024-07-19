@@ -1,8 +1,8 @@
 const postCommentHandler = async (event) => {
     event.preventDefault();
 
-    const comment_content = document.querySelector('#comment-content').value.trim();
     const post_id = event.target.getAttribute('data-post-id');
+    const comment_content = document.querySelector('#comment-content').value.trim();
 
     if (comment_content && post_id) {
         const response = await fetch('/api/comments', {

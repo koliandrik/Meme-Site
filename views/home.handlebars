@@ -1,9 +1,11 @@
-{{!== views/home.handlebars ==}}
+{{!-- views/home.handlebars --}}
 <section id="feed">
   {{#each posts}}
     <div class="post">
       <img src="{{this.url}}" alt="Meme" />
       <p>{{this.caption}}</p>
+      {{!-- Render comments for each post --}}
+      {{> comment post_id=this.id comments=this.comments}}
     </div>
   {{/each}}
 </section>
