@@ -5,7 +5,8 @@
       <img src="{{this.url}}" alt="Meme" />
       <p>{{this.caption}}</p>
       {{!-- Render comments for each post --}}
-      {{> comment post_id=this.id comments=this.comments}}
+
+      {{> comment this post_id=this.id comments=this.comments}}
     </div>
   {{/each}}
 </section>
