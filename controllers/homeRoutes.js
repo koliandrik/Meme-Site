@@ -1,17 +1,17 @@
 const router = require("express").Router();
-const { Post, User, Comment } = require("../models");
+const { Username, Post , Comment } = require("../models");
 
 // Render home page
 router.get("/", async (req, res) => {
   try {
     const postData = await Post.findAll({
       include: [
-        { model: User, attributes: ['username'] },
-        { model: Comment, include: [{ model: User, attributes: ['username'] }] },
+        { model: Username, attributes: ['username'] },
+        { model: Comment, include: [{ model: Username, attributes: ['username'] }] },
       ],
       order: [["createdAt", "DESC"]],
     });
-
+    
     const posts = postData.map((post) => post.get({ plain: true }));
 
     res.render("home", {
@@ -19,6 +19,7 @@ router.get("/", async (req, res) => {
       logged_in: req.session.logged_in,
     });
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });
