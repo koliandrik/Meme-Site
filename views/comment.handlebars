@@ -1,0 +1,19 @@
+{{#if logged_in}}
+<section id="comments">
+    <textarea id="comment-content" placeholder="Enter your comment"></textarea>
+    <button id="post-comment" data-post-id="{{post_id}}">Post Comment</button>
+</section>
+{{else}}
+<p>You must be logged in to post comments.</p>
+{{/if}}
+
+<div id="comment-list">
+    {{#each comments}}
+    <div class="comment">
+        <p>{{this.comment_content}}</p>
+        <p>Posted by: {{this.username}}</p>
+    </div>
+    {{/each}}
+</div>
+
+<script src="/js/comment.js"></script>
