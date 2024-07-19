@@ -6,7 +6,7 @@
       <p>{{this.caption}}</p>
       {{!-- Render comments for each post --}}
 
-      {{> comment this post_id=this.id comments=this.comments}}
+      {{> comment logged_in=../logged_in post_id=this.id comments=this.comments}}
     </div>
   {{/each}}
 </section>
