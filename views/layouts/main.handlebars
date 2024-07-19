@@ -18,16 +18,22 @@
         </form>
         <nav>
             {{#if logged_in}}
-                <a id="logout" href="#">Sign Out</a>
+            <a id="logout" href="#">Sign Out</a>
             {{else}}
-                <a href="/signin">Sign In</a>
-                <a href="/signup">Sign Up</a>
+            <a href="/signin">Sign In</a>
+            <a href="/signup">Sign Up</a>
             {{/if}}
         </nav>
     </header>
 
     {{{body}}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <!-- Render script for logged in users only -->
+    {{#if logged_in}}
+    <script src="/js/logout.js"></script>
+    {{/if}}
+
 </body>
 
 </html>
