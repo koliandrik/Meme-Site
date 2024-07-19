@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Post, Username } = require("../models");
+const { Post, Username, Comment } = require("../models");
 
 // Render home page
 router.get("/", async (req, res) => {
@@ -15,6 +15,8 @@ router.get("/", async (req, res) => {
       //order: [["createdAt", "DESC"]],
     });
 
+    console.log(postData);
+
     const posts = postData.map((post) => post.get({ plain: true }));
 
     res.render("home", {
@@ -22,6 +24,7 @@ router.get("/", async (req, res) => {
       logged_in: req.session.logged_in,
     });
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });
