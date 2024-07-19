@@ -11,16 +11,18 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         try {
-            const resposne = await fetch('/api/posts', {
+            const response = await fetch('/api/posts', {
                 method: 'POST',
                 body: JSON.stringify({url}),
                 headers: { 'Content-Type': 'application/json' },
             });
 
+            console.log(response);
+
             if (response.ok) {
                 document.location.reload();
             } else {
-                alert('Failed to upload image');
+                alert('Please log in to do anything but view memes');
             }
         } catch (err) {
             console.error(err);
