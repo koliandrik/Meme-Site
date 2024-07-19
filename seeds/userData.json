@@ -1,14 +1,17 @@
 [
   {
     "username": "Big Baby Puddin Snatcher",
+    "email": "BBPS@Mailio.com",
     "password": "password12345"
   },
   {
     "username": "Charlie Schnitzengruben",
+    "email": "CSchnitz@maildogger.com",
     "password": "password12345"
   },
   {
     "username": "Falcon Force Five",
+    "email": "FF5@Wonkamail.com",
     "password": "password12345"
   }
 ]
