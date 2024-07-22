@@ -5,7 +5,6 @@
       <img src="{{this.url}}" alt="Meme" />
       <p>{{this.caption}}</p>
       {{!-- Render comments for each post --}}
-
       {{> comment logged_in=../logged_in post_id=this.id comments=this.comments}}
     </div>
   {{/each}}

@@ -2,7 +2,7 @@ const postCommentHandler = async (event) => {
     event.preventDefault();
 
     const post_id = event.target.getAttribute('data-post-id');
-    const comment_content = document.querySelector('#comment-content').value.trim();
+    const comment_content = document.querySelector(`#comment-content-${post_id}`).value.trim();
 
     if (comment_content && post_id) {
         const response = await fetch('/api/comments', {
@@ -16,9 +16,11 @@ const postCommentHandler = async (event) => {
         } else {
             alert('Failed to post comment');
         }
+    } else {
+        alert('Comment content/post ID is missing.');
     }
 };
 
-document.querySelector('#post-comment').forEach((button) => {
+document.querySelectorAll('.post-comment').forEach((button) => {
     button.addEventListener('click', postCommentHandler);
 });
