@@ -1,17 +1,18 @@
+<div id="comment-list-{{post_id}}" class="container center">
+  {{#each comments}}
+  <div class="card comment">
+    <p class="left-align grey">{{this.user.username}} commented:</p>
+    <p >{{this.comment_content}}</p>
+  </div>
+  {{/each}}
+</div>
+
 {{#if logged_in}}
-<section id="comments">
-  <textarea id="comment-content-{{post_id}}" placeholder="Enter your comment"></textarea>
-  <button class="post-comment" data-post-id="{{post_id}}">Post Comment</button>
+<section id="comments" class="container">
+  <textarea id="comment-content-{{post_id}}" placeholder="Enter your comment" class="white"></textarea>
+  <button class="post-comment btn" data-post-id="{{post_id}}">Post Comment</button>
 </section>
 {{else}}
 <p>You must be logged in to post comments.</p>
 {{/if}}
 
-<div id="comment-list-{{post_id}}">
-  {{#each comments}}
-  <div class="comment">
-    <p>{{this.comment_content}}</p>
-    <p>Posted by: {{this.user.username}}</p>
-  </div>
-  {{/each}}
-</div>

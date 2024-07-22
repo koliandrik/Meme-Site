@@ -1,8 +1,8 @@
 {{!-- views/home.handlebars --}}
-<section id="feed">
+<section id="feed" class="container">
   {{#each posts}}
-    <div class="post">
-      <img src="{{this.url}}" alt="Meme" />
+    <div class="post center">
+      <img class="container card" src="{{this.url}}" alt="Meme" />
       <p>{{this.caption}}</p>
       {{!-- Render comments for each post --}}
       {{> comment logged_in=../logged_in post_id=this.id comments=this.comments}}
