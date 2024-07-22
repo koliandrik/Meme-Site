@@ -1,17 +1,17 @@
 {{#if logged_in}}
 <section id="comments">
-    <textarea id="comment-content" placeholder="Enter your comment"></textarea>
-    <button id="post-comment" data-post-id="{{post_id}}">Post Comment</button>
+    <textarea id="comment-content-{{post_id}}" placeholder="Enter your comment"></textarea>
+    <button class="post-comment" data-post-id="{{post_id}}">Post Comment</button>
 </section>
 {{else}}
 <p>You must be logged in to post comments.</p>
 {{/if}}
 
-<div id="comment-list">
+<div id="comment-list-{{post_id}}">
     {{#each comments}}
     <div class="comment">
         <p>{{this.comment_content}}</p>
-        <p>Posted by: {{this.username}}</p>
+        <p>Posted by: {{this.user.username}}</p>
     </div>
     {{/each}}
 </div>
