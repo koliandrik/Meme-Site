@@ -11,18 +11,22 @@
 
 <body>
     <header>
-        <h1>Post Your Meme!</h1>
-        <form id="upload-url-form">
-            <input type="text" id="image-url" placeholder="Enter Image URL" />
-            <button type="submit">Enter</button>
-        </form>
+        <h1 class="brand-logo center">Post Your Meme!</h1>
+        <div class="container">
+            <form class="container row" id="upload-url-form">
+                <input type="text" id="image-url" placeholder="Enter Image URL" class="validate center"/>
+                <button class="btn waves-effect waves-light right" type="submit">Enter</button>
+            </form>
+        </div>
         <nav>
-            {{#if logged_in}}
-            <a id="logout" href="#">Sign Out</a>
-            {{else}}
-            <a href="/signin">Sign In</a>
-            <a href="/signup">Sign Up</a>
-            {{/if}}
+            <ul class="right">
+                {{#if logged_in}}
+                <li><a id="logout" href="#">Sign Out</a></li>
+                {{else}}
+                <li><a href="/signin">Sign In</a></li>
+                <li><a href="/signup">Sign Up</a></li>
+                {{/if}}
+            </ul>
         </nav>
     </header>
 
