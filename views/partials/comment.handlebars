@@ -1,7 +1,7 @@
 {{#if logged_in}}
-<section id="comments">
+<section id="comments" class="container">
   <textarea id="comment-content-{{post_id}}" placeholder="Enter your comment"></textarea>
-  <button class="post-comment" data-post-id="{{post_id}}">Post Comment</button>
+  <button class="post-comment btn" data-post-id="{{post_id}}">Post Comment</button>
 </section>
 {{else}}
 <p>You must be logged in to post comments.</p>
