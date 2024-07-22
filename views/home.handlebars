@@ -1,7 +1,7 @@
 {{!-- views/home.handlebars --}}
 <section id="feed" class="container">
   {{#each posts}}
-    <div class="post card center">
+    <div class="post center">
       <img class="container card" src="{{this.url}}" alt="Meme" />
       <p>{{this.caption}}</p>
       {{!-- Render comments for each post --}}
